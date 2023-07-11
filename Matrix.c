@@ -17,11 +17,11 @@ void print_matrix(Matrix M, char *name) {
     printf("%s = [ \n", name);
     for (size_t i = 1; i <= M->rows; i++){
         for (size_t j = 1; j <= M->columns; j++) {
-            printf("%.3f ", matrix_get(M, i, j));
+            printf("\t%.4f", matrix_get(M, i, j));
         }
         printf("\n");
     }
-    printf("]\n");
+    printf("] %zux%zu\n", M->rows, M->columns);
 }
 
 void matrix_fill(Matrix M, float x) {
@@ -72,7 +72,7 @@ Matrix get_row(Matrix M, size_t row) {
 
 Matrix get_column(Matrix M, size_t column) {
     Matrix return_column = matrix_init(M->rows, 1);
-    for (size_t i = 1; i <= return_column->columns; i++) {
+    for (size_t i = 1; i <= return_column->rows; i++) {
         matrix_get(return_column, i, 1) = matrix_get(M, i, column);
     }
     return return_column;
