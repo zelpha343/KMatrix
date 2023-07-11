@@ -1,4 +1,0 @@
-#!/bin/bash
-
-
-clang -o main main.c Matrix.c
